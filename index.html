@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Smash</title>
+
+		<!-- Dev mode -->
+		<script type="text/javascript" src="../Libs/closure/closure/goog/base.js"></script>
+		<script type='text/javascript' src='../SXFramework/bin/deps.js'></script>
+		<script type='text/javascript' src='bin/deps.js'></script>
+
+
+		<!-- Debugging Nucleus -->
+		<script type='text/javascript' src='../SXFramework/engines/Renderer.js'></script>
+ 		
+
+		<!-- Prod mode -->
+		<!--
+			<script type='text/javascript' src='bin/application.js'></script>
+ 		-->
+
+ 		<style>
+ 			body { margin: 0; padding: 0;}
+ 		</style>
+ 
+	</head>
+	<body>
+
+		<canvas id="test" width="800" height="600"></canvas>
+
+
+		<script>
+
+			// Run the application.
+			window['application']();
+
+		</script>
+
+	</body>
+</html>
