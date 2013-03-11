@@ -5,14 +5,20 @@
 
 		<!-- Dev mode -->
 		<script type="text/javascript" src="../Libs/closure/closure/goog/base.js"></script>
-		<script type='text/javascript' src='../SXFramework/bin/deps.js'></script>
+		<script type='text/javascript' src='../Nucleus/bin/deps.js'></script>
 		<script type='text/javascript' src='bin/deps.js'></script>
 
 
-		<!-- Debugging Nucleus -->
-		<script type='text/javascript' src='../SXFramework/engines/Renderer.js'></script>
- 		
+		<!-- Debugging Nucleus
+		<script type='text/javascript' src='../Nucleus/engines/Renderer.js'></script>
+		 -->
+		<script type='text/javascript' src='src/Main.js'></script>
 
+		<!-- Compiled lib -->
+		<!--
+			<script type='text/javascript' src='../Nucleus/bin/compiled.js'></script>
+		 --> 
+ 
 		<!-- Prod mode -->
 		<!--
 			<script type='text/javascript' src='bin/application.js'></script>
@@ -31,7 +37,10 @@
 		<script>
 
 			// Run the application.
-			window['application']();
+			window.onload = function()
+			{
+				window['application']();
+			};
 
 		</script>
 

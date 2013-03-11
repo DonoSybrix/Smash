@@ -4,9 +4,9 @@
 # Create compiler output.
 ../../Libs/closure/closure/bin/build/closurebuilder.py \
 --root=../../Libs/closure/ \
---root=../../Smash/src \
---root=../../SXFramework/Engines/ \
---namespace=Application.main \
+--root=../../Nucleus/Engines/ \
+--root=../../Smash/src/ \
+--namespace=Smash.Main \
 --output_mode=compiled \
 --compiler_jar=../../Libs/closure/compiler.jar \
 --compiler_flags=--compilation_level=ADVANCED_OPTIMIZATIONS \
