@@ -2,4 +2,4 @@
 // Please do not edit.
 goog.addDependency('../../../../Smash/src/Main.js', ['Smash.Main'], ['Smash.Game']);
 goog.addDependency('../../../../Smash/src/Smash.js', ['Smash.Game'], ['Game.GameInterface', 'Smash.States.MainState']);
-goog.addDependency('../../../../Smash/src/States/MainState.js', ['Smash.States.MainState'], ['Game.State', 'Renderer.Camera', 'Renderer.Materials.Material', 'Renderer.Mesh', 'Renderer.PrimitiveBuilder', 'Renderer.Scene']);
+goog.addDependency('../../../../Smash/src/States/MainState.js', ['Smash.States.MainState'], ['Game.State', 'Game.World', 'Renderer.Camera', 'Renderer.Materials.Material', 'Renderer.Mesh', 'Renderer.PrimitiveBuilder', 'Renderer.Scene']);

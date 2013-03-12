@@ -1,5 +1,7 @@
 goog.provide('Smash.States.MainState');
 goog.require('Game.State');
+goog.require('Game.World');
+
 goog.require('Renderer.Camera');
 goog.require('Renderer.Scene');
 goog.require('Renderer.Mesh');
@@ -14,6 +16,13 @@ goog.require('Renderer.PrimitiveBuilder');
  */
 Smash.States.MainState = function() 
 {
+	/**
+	* World when we will stock and manage entities.
+	* @type {Game.World}
+	* @private
+	*/
+	this.world = new Game.World();
+
 	/**
 	* Camera used to render the scene.
 	* @type {Renderer.Camera}
@@ -43,7 +52,7 @@ Smash.States.MainState = function()
 */
 Smash.States.MainState.prototype.end = function( game ) 
 { 
-
+	
 };
 
 /**
@@ -79,6 +88,8 @@ Smash.States.MainState.prototype.start = function( game )
 */
 Smash.States.MainState.prototype.update = function( game ) 
 { 
+	this.world.update();
+
 	var rotation = this.mesh.getTransformable().getRotation();
     this.mesh.transformable.setRotation( rotation[0], rotation[1], rotation[2] + 0.01 );
 };
