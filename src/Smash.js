@@ -13,6 +13,7 @@ Smash.Game = function()
     Game.GameInterface.call( this );
 };
 goog.inherits( Smash.Game, Game.GameInterface );
+goog.addSingletonGetter( Smash.Game );
 
 /**
  * Prepare the game.

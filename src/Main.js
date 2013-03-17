@@ -3,7 +3,7 @@ goog.require('Smash.Game');
 
 Smash.Main = function()
 {
-    var smash = new Smash.Game();
+    var smash = Smash.Game.getInstance();
     smash.prepare();
     smash.start();
 };

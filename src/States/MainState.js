@@ -7,6 +7,8 @@ goog.require('Renderer.Scene');
 goog.require('Renderer.Mesh');
 goog.require('Renderer.Materials.Material');
 goog.require('Renderer.PrimitiveBuilder');
+goog.require('Smash.Systems.RendererSystem');
+goog.require('Smash.Components.RendererComponent');
 
 /**
  * Entry of Smash. 
@@ -17,25 +19,11 @@ goog.require('Renderer.PrimitiveBuilder');
 Smash.States.MainState = function() 
 {
 	/**
-	* World when we will stock and manage entities.
-	* @type {Game.World}
-	* @private
-	*/
-	this.world = new Game.World();
-
-	/**
 	* Camera used to render the scene.
 	* @type {Renderer.Camera}
 	* @private
 	*/
-	this.camera = new Renderer.Camera("3D" );
-
-	/**
-	* Mesh to test the engine.
-	* @type {Renderer.Mesh}
-	* @private
-	*/
-	this.mesh = null;
+	this.camera = new Renderer.Camera("3D");
 
 	/**
 	* Scene containing the rendering element.
@@ -43,6 +31,13 @@ Smash.States.MainState = function()
 	* @private
 	*/
 	this.scene = new Renderer.Scene();
+
+	/**
+	* World when we will stock and manage entities.
+	* @type {Game.World}
+	* @private
+	*/
+	this.world = new Game.World();
 
 };
 
@@ -70,16 +65,9 @@ Smash.States.MainState.prototype.render = function( renderer )
 */
 Smash.States.MainState.prototype.start = function( game ) 
 {
-	// Configurate camera.
-	this.camera.setPosition( 0, 0, 2 );
-	this.camera.lookAt( 0, 0, -5 );
-	this.camera.setPosition( 0, 0, 0 );
-
-	// Test mesh
-	this.mesh = new Renderer.Mesh( 	Renderer.PrimitiveBuilder.Plane(), 
-									new Renderer.Materials.Material() );
-    this.mesh.transformable.setScale( 1, 1, 1 );
-	this.scene.add( this.mesh );
+	// Create renderer system.
+	var rendererSystem = new Smash.Systems.RendererSystem( game.getRenderer(), this.scene );
+	this.world.addSystem( rendererSystem );
 };
 
 /**
@@ -89,7 +77,4 @@ Smash.States.MainState.prototype.start = function( game )
 Smash.States.MainState.prototype.update = function( game ) 
 { 
 	this.world.update();
-
-	var rotation = this.mesh.getTransformable().getRotation();
-    this.mesh.transformable.setRotation( rotation[0], rotation[1], rotation[2] + 0.01 );
 };
